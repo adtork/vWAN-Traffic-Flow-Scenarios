@@ -9,13 +9,13 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 
 ○ Traffic Walk -Spoke to Spoke via vHub
 <br>
-•Source VM--->Route Service VIP
+•Spoke VM--->Route Service VIP
 <br>
-•Route Service VIP-->Dest VM
+•Route Service VIP-->Branch VM
 <br>
-•Dest VM-->Route Service VIP
+•Branch VM-->Route Service VIP
 <br>
-•Route Service VIP-->Dest VM
+•Route Service VIP-->Spoke VM
 
 ○ Traffic Walk -Spoke to Branch-IPSEC VPN/P2S
 <br>
