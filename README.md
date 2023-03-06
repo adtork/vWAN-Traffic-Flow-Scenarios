@@ -11,9 +11,9 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 <br>
 •Spoke VM--->Route Service VIP
 <br>
-•Route Service VIP-->Branch VM
+•Route Service VIP-->Spoke VM
 <br>
-•Branch VM-->Route Service VIP
+•Spoke VM-->Route Service VIP
 <br>
 •Route Service VIP-->Spoke VM
 
