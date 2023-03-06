@@ -1,5 +1,5 @@
-○# vWAN-Traffic-Flow-Scenarios
-A walk threw of various traffic flow patterns with vWAN
+# vWAN-Traffic-Flow-Scenarios
+A simple walk threw of various traffic patterns used in Azure Virtual Wan.
 
 # Intro
 In this article, my colleague Mays and I are going to walk threw the various traffic flow scenarios with Virtual Wan. This will include both intra and interhub scenarios including SDWan, SecureHub, and Spoke/Branch flows.  
