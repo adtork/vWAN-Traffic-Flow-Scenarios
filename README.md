@@ -39,4 +39,5 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 <br>
 •ExR GW VIP-->Spoke VM
 <br>
-For diagram simplicity not showing MSEE routers for ExpressRoute. There would be two for each VRF!
+<br>
+♦For diagram simplicity not showing MSEE routers for ExpressRoute. There would be two for each VRF!
