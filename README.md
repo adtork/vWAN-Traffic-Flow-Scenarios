@@ -5,7 +5,7 @@ A simple walk threw of various traffic patterns used in Azure Virtual Wan.
 In this article, my colleague Mays and I are going to walk threw the various traffic flow scenarios with Virtual Wan. This will include both intra and interhub scenarios including SDWan, SecureHub, and Spoke/Branch flows.  
 
 # Intra Region -Single & Multple Hubs
-![image](https://user-images.githubusercontent.com/55964102/223010063-d91ab75d-4c48-48ac-bc15-839d8dd2d60a.png)
+![image](https://user-images.githubusercontent.com/55964102/223010865-4b672dd5-f57a-4a18-ae3a-3f8649f57a99.png)
 
 ○ Traffic Walk -Spoke to Spoke via vHub
 <br>
