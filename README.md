@@ -41,3 +41,9 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 <br>
 <br>
 ♦For diagram simplicity not showing MSEE routers for ExpressRoute. There would be two for each VRF!
+
+![image](https://user-images.githubusercontent.com/55964102/224856445-c5eb75cb-d814-47cc-b569-80870e4d3eb9.png)
+<br>
+○ Traffic Walk -Spoke to Spoke multiple vHubs
+•Spoke VM
+
