@@ -45,5 +45,30 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 ![image](https://user-images.githubusercontent.com/55964102/224856445-c5eb75cb-d814-47cc-b569-80870e4d3eb9.png)
 <br>
 ○ Traffic Walk -Spoke to Spoke multiple vHubs
-•Spoke VM
-
+<br>
+•Spoke VM--> Route Service VIP vHub
+<br>
+•Route Service VIP vHub-->Route Service VIP vHub2
+<br>
+•Route Service VIP vHub2-->Spoke4 VM
+<br>
+•Spoke4 VM-->Route Service VIP vHub2
+<br>
+•Route Service VIP vHub2-->Route Service VIP vHub
+<br>
+•Route Service VIP vHub-->SpokeVM
+<br>
+<br>
+○ Traffic Walk -Spoke to Branch across vHubs
+<br>
+•Spoke2 VM-->vHub Route Service VIP
+<br>
+•vHub Route Service VIP--> VNG on vHub2
+<br>
+•VNG on vHub2 -->Branch2 VM
+<br>
+•Branch2 VM--> VNG on vHub2
+<br>
+•VNG on vHub2 -> vHub Route Service VIP
+<br>
+•vHub Route Service VIP-->Spoke2 VM
