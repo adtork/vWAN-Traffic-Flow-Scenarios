@@ -40,9 +40,9 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 •ExR GW VIP-->Spoke VM
 <br>
 <br>
-♦For diagram simplicity not showing MSEE routers for ExpressRoute. There would be two for each VRF!
+♦For diagram simplicity not showing MSEE routers for ExpressRoute on diagrams. There would be two for each VRF!
 
-![image](https://user-images.githubusercontent.com/55964102/224856445-c5eb75cb-d814-47cc-b569-80870e4d3eb9.png)
+![image](https://user-images.githubusercontent.com/55964102/224860975-a3769cd9-238a-4cfa-86bd-0e0175ea592d.png)
 <br>
 ○ Traffic Walk -Spoke to Spoke multiple vHubs
 <br>
@@ -90,3 +90,19 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 <br>
 <br>
 ♦This same flow would also work from IPSEC VNG to ExpressRoute VNG. However, ExR VNG to ExR VNG requires Global Reach. vWAN does to allow ExR to ExR transit!
+<br>
+<br>
+○ Traffic Walk -Spoke to Branch via ExR
+<br>
+•Spoke2VM--> Route Service VIP vHub
+<br>
+•Route Service VIP vHub-->MSEE (PA) vHub2
+<br>
+•MSEE (PA) vHub2 -->Branch2 VM
+<br>
+•Branch2 VM--> ExR GW vHub2
+<br>
+•ExR GW vHub2--> Route Service VIP vHub
+<br>
+•Route Service VIP vHub--> Spoke2 VM
+
