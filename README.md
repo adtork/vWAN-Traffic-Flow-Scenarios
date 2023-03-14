@@ -72,3 +72,21 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 •VNG on vHub2 -> vHub Route Service VIP
 <br>
 •vHub Route Service VIP-->Spoke2 VM
+<br>
+<br>
+○ Traffic Walk -Branch to Branch across vHubs
+<br>
+•Branch1 VM--->VNG on vHub
+<br>
+•VNG on vHub-->VNG on vHub2
+<br>
+•VNG on vHub2-->Branch2 VM
+<br>
+•Branch2 VM-->VNG on vHub2
+<br>
+•VNG on vHub2-->VNG on vHub1
+<br>
+•VNG on vHub1-->Branch1 VM
+<br>
+<br>
+♦This same flow would also work from IPSEC VNG to ExpressRoute VNG. However, ExR VNG to ExR VNG requires Global Reach. vWAN does to allow ExR to ExR transit!
