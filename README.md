@@ -92,7 +92,7 @@ In this article, my colleague Mays and I are going to walk threw the various tra
 ♦This same flow would also work from IPSEC VNG to ExpressRoute VNG. However, ExR VNG to ExR VNG requires Global Reach. vWAN does to allow ExR to ExR transit!
 <br>
 <br>
-○ Traffic Walk -Spoke to Branch via ExR
+○ Traffic Walk -Spoke to Branch across vHubs via ExR
 <br>
 •Spoke2VM--> Route Service VIP vHub
 <br>
