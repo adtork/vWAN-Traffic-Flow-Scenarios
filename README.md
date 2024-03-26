@@ -1,67 +1,38 @@
 # vWAN-Traffic-Flow-Scenarios
 A simple walk threw of various traffic patterns used in Azure Virtual Wan.
 
-# Intro
-In this article, my colleague Mays, Shruthi and I are going to walk threw the various traffic flow scenarios with Virtual Wan. This will include both intra and interhub scenarios including SDWan, SecureHub, and Spoke/Branch flows.  
-
 # Intra Region -Single & Multple Hubs
 ![image](https://user-images.githubusercontent.com/55964102/225049336-3c26a1af-171b-45d0-824c-0e507b51c7d6.png)
 
 ○ Traffic Walk -Spoke to Spoke via vHub
 <br>
-•Spoke VM--->Route Service VIP
+•Spoke VM-->Route Service VIP-->Spoke VM (Same Flow in Reverse!)
 <br>
-•Route Service VIP-->Spoke VM
-<br>
-•Spoke VM-->Route Service VIP
-<br>
-•Route Service VIP-->Spoke VM
 
-○ Traffic Walk -Spoke to Branch-IPSEC VPN/P2S
+○ Traffic Walk -Spoke to Branch/Branch to Spoke -IPSEC VPN/P2S
 <br>
-•Spoke VM--> VPN GW VIP
+•Spoke VM--> VPN GW VIP-->Branch VM
 <br>
-•VPN GW VIP-->Branch VM
-<br>
-•Branch VM-->VPN GW VIP
-<br>
-•VPN GW VIP-->Spoke VM
+•Branch VM-->VPN GW VIP-->Spoke VM
 
-○ Traffic Walk -Spoke to Branch-ExpressRoute
+○ Traffic Walk -Spoke to Branch/Branch to Spoke -ExpressRoute
 <br>
-•Spoke VM-->MSEE Physical Address(PA)
+•Spoke VM-->MSEE Physical Address(PA)-->Branch VM
 <br>
-•MSEE-->Branch VM
-<br>
-•Branch VM-->MSEE Physical Address(PA)
-<br>
-•MSEE PA--->ExR GW VIP
-<br>
-•ExR GW VIP-->Spoke VM
+Branch VM-->MSEE Physical Address(PA)-->Gateway Internal IP-->Spoke VM
 <br>
 <br>
-♦For diagram simplicity not showing MSEE routers for ExpressRoute on diagrams. There would be two for each VRF!
+♦For diagram simplicity not showing MSEE routers for ExpressRoute. There would be two for each VRF!
 
 ![image](https://user-images.githubusercontent.com/55964102/224860975-a3769cd9-238a-4cfa-86bd-0e0175ea592d.png)
 <br>
 ○ Traffic Walk -Spoke to Spoke multiple vHubs
 <br>
-•Spoke VM--> Route Service VIP vHub
+•Spoke VM--> Route Service VIP vHub-->Route Service VIP vHub2-->Spoke VM (Same Flow in Reverse!)
 <br>
-•Route Service VIP vHub-->Route Service VIP vHub2
+○ Traffic Walk -Spoke to Branch/Branch to Spoke across vHubs
 <br>
-•Route Service VIP vHub2-->Spoke4 VM
-<br>
-•Spoke4 VM-->Route Service VIP vHub2
-<br>
-•Route Service VIP vHub2-->Route Service VIP vHub
-<br>
-•Route Service VIP vHub-->SpokeVM
-<br>
-<br>
-○ Traffic Walk -Spoke to Branch across vHubs
-<br>
-•Spoke2 VM-->vHub Route Service VIP
+•Spoke VM-->vHub Route Service VIP
 <br>
 •vHub Route Service VIP--> VNG on vHub2
 <br>
