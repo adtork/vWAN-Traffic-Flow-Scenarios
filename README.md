@@ -19,3 +19,4 @@ Flow F: Branch VPN--->vHub IPSEC VPN--->MSEE PA---->Branch CE
 If an Azure Firewall or NVA is deployed inside the vhub, that will intercept the packets in line with the route service VIP if Routing Intent is enabled. As we can see in a single hub, any traffic going to branches does not take the RS instances inside the vhub. Spoke to Spoke uses the RS instanes inside the vhub and that counts towards the vHub Infrastructure limits ~ up to 50Gbps.
 
 # Multiple vWAN Hubs
+![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/268bfd39-0492-4501-92fb-aaa61c2d6cd4)
