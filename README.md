@@ -20,5 +20,5 @@ If an Azure Firewall or NVA is deployed inside the vhub, that will intercept the
 
 # Multiple vWAN Hubs
 
-![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/552db9bb-71d2-4028-80db-17686462d66f)
+
 
