@@ -10,13 +10,13 @@ Flow B: Spoke VM-->vHub VPN-->Branch VPN Concentrator
 <br>
 (*Reverse flow*) Branch VPN Concentrator-->vHub VPN-->Spoke VM
 <br>
-Flow C: Spoke VM-->MSEE PA--->Branch CE
+Flow C: Spoke VM-->MSEE PA-->Branch CE
 <Br>
-Flow D: Branch CE-->MSEE PA--->ExpressRoute GW--->Spoke VM
+Flow D: Branch CE-->MSEE PA-->ExpressRoute GW-->Spoke VM
 <Br>
-Flow E: Branch CE-->MSEE--->ExpressRoute GW--->vHub VPN Gateway---->Branch VPN Concentrator
+Flow E: Branch CE-->MSEE-->ExpressRoute GW-->vHub VPN Gateway-->Branch VPN Concentrator
 <br>
-Flow F: Branch VPN Concentrator--->vHub VPN--->MSEE PA---->Branch CE
+Flow F: Branch VPN Concentrator-->vHub VPN--->MSEE PA-->Branch CE
 
 # Quick Take-Aways
 In the flow paths above, VPN can also be replaced with SDWan for the same behavior! If an Azure Firewall or NVA is deployed inside the vhub, that will intercept the packets instead of the route service VIP if Routing Intent is enabled (Or Private or Internet Traffic via single vHub). In a single vHub, flows to and from branches (IPSEC/SDWan/ExR) do not go threw the route service instances. Only Spoke to Spoke flows traverse the route server instances, and that counts towards the vhub infrastructure limit (Up to 50Gbps limit per vhub). Branch to Branch flows also don't go threw the route server instances. 
