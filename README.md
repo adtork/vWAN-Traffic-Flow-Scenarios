@@ -1,5 +1,5 @@
 # vWAN-Traffic-Flow-Scenarios
-A simple walk threw of various traffic patterns used in Azure Virtual Wan for Single and Multiple Hubs
+A simple walk threw of various traffic patterns seen in Azure Virtual Wan for Single and Multiple Hubs
 <br>
 # Single vWAN Hub
 ![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/8ad7efcc-c3d1-4e39-8568-baed09bc1aaa)
