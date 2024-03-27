@@ -2,9 +2,7 @@
 A simple walk threw of various traffic patterns used in Azure Virtual Wan for Single and Multiple Hubs
 <br>
 # Single vWAN Hub
-
-
-![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/91bfca72-a90e-4e07-aa96-c902d04262fc)
+![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/0d14b614-cb3f-4cb7-9298-6a45c3c3706b)
 <br>
 Flow A: Spoke VM-->Route Server Instances-->SpokeVM (Reverse is the same)
 <br>
