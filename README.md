@@ -2,21 +2,23 @@
 A simple walk threw of various traffic patterns used in Azure Virtual Wan for Single and Multiple Hubs
 <br>
 # Single vWAN Hub
-![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/3f08fd91-7411-48bd-b383-7436994add12)
-<br>
-Flow A: Spoke VM-->Route Server VIP-->SpokeVM (Reverse is the same)
-<br>
-Flow B: SpokeVM-->IPSEC GW--->Branch (Reverse is the same)
-<br>
-Flow C: Spoke VM-->MSEE PA--->Branch
-<Br>
-Flow D: Branch-->MSEE PA--->ExpressRoute GW--->Spoke
-<Br>
-Flow E: Branch CE to MSEE--->ExR Gateway--->IPSEC Gateway---->VPN Branch
-<br>
-Flow F: Branch VPN--->vHub IPSEC VPN--->MSEE PA---->Branch CE
 
-If an Azure Firewall or NVA is deployed inside the vhub, that will intercept the packets in line with the route service VIP if Routing Intent is enabled. As we can see in a single hub, any traffic going to branches does not take the RS instances inside the vhub. Spoke to Spoke uses the RS instanes inside the vhub and that counts towards the vHub Infrastructure limits ~ up to 50Gbps.
+
+![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/91bfca72-a90e-4e07-aa96-c902d04262fc)
+<br>
+Flow A: Spoke VM-->Route Server Instances-->SpokeVM (Reverse is the same)
+<br>
+Flow B: SpokeVM-->VPN GW--->Branch VPN Concentrator (Reverse is the same)
+<br>
+Flow C: Spoke VM-->MSEE PA--->Branch CE
+<Br>
+Flow D: Branch CE-->MSEE PA--->ExpressRoute GW--->Spoke VM
+<Br>
+Flow E: Branch CE-->MSEE--->ExR Gateway--->VPN Gateway---->VPN Branch
+<br>
+Flow F: Branch VVPN Concentrator--->vHub VPN--->MSEE PA---->Branch CE
+
+If an Azure Firewall or NVA is deployed inside the vhub, that will intercept the packets in line with the route service VIP if Routing Intent is enabled. In a single vHub, flows to and from branches do not go threw the route service instances. Only Spoke to Spoke flows go traverse the route server instances, and that counts towards the vhub infrastructure limit (Up to 50Gbps)
 
 # Multiple vWAN Hubs
 
