@@ -7,6 +7,7 @@ A simple walk threw of various traffic patterns used in Azure Virtual Wan for Si
 Flow A: Spoke VM-->Route Server Instances-->Spoke VM (Reverse is the same)
 <br>
 Flow B: Spoke VM-->vHub VPN-->Branch VPN Concentrator
+<br>
 (*Reverse flow*) Branch VPN Concentrator-->vHub VPN-->Spoke VM
 <br>
 Flow C: Spoke VM-->MSEE PA--->Branch CE
