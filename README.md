@@ -16,9 +16,11 @@ Flow E: Branch CE-->MSEE--->ExR Gateway--->VPN Gateway---->VPN Branch
 <br>
 Flow F: Branch VVPN Concentrator--->vHub VPN--->MSEE PA---->Branch CE
 
-If an Azure Firewall or NVA is deployed inside the vhub, that will intercept the packets in line with the route service VIP if Routing Intent is enabled. In a single vHub, flows to and from branches do not go threw the route service instances. Only Spoke to Spoke flows go traverse the route server instances, and that counts towards the vhub infrastructure limit (Up to 50Gbps)
+In the flow paths above, VPN can also be replaced with SDWan for the same behavior! If an Azure Firewall or NVA is deployed inside the vhub, that will intercept the packets instead of the route service VIP if Routing Intent is enabled (Or Private or Internet Traffic via single vHub). In a single vHub, flows to and from branches (IPSEC/SDWan/ExR) do not go threw the route service instances. Only Spoke to Spoke flows traverse the route server instances, and that counts towards the vhub infrastructure limit (Up to 50Gbps limit per vhub)
 
 # Multiple vWAN Hubs
+![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/3ab4cc3b-8db2-4262-8666-419cbf4f3d4b)
+
 
 
 
