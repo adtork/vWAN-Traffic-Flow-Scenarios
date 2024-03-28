@@ -24,7 +24,7 @@ In the aforementioned flow paths, it's pertinent to note that the Virtual Privat
 During operations within a single vHub, it's important to note that flows to and from branches, whether via IPSEC, SDWan, or ExpressRoute, do not traverse the route service instances. Instead, this pattern is only observed in Spoke to Spoke flows, which contributes towards the vHub infrastructure limit, currently capped at 50Gbps per vHub, [For additional details, please refer to the linked resource](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits). Lastly, it should be mentioned that Branch to Branch flows also bypass the route service instances. 
 
 # Multiple vWAN Hubs
-![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/158928e4-6d2d-4663-a7fa-4c197decb3dc)
+![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/95574280-b609-4f52-8346-6cd6935f4bdf)
 <br>
 Flow A: Spoke VM-->Route Server Instances-->Remote Route Server Instances-->Remote Spoke VM (Reverse is the same)
 <br>
