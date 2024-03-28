@@ -41,7 +41,13 @@ Flow E: Branch CE-->MSEE PA-->ExpressRoute GW-->Remote vHub VPN GW-->Remote Bran
 Flow F: Branch VPN Concentrator-->Remote MSEE PA-->Remote Branch CE
 
 # Quick Take-Aways
-Just like above via single vhub, with an NVA or AzFW in (one vhub or both),that would intercept the packets instead of the route server instances. SDWan would behave the same as VPN, just like single vhub. In the flow paths above, we can see spoke tp spoke across hubs always takes the route server instances. Traffic from Spoke to Branch and Branch to Spoke also traverses one set of Route Server instances as well. Branch to Branch does not go threw the route server instances. Lastly, vWAN does not provide transit by default for ExprressRoute to ExpressRoute flows, that would require [Global Reach](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-global-reach). The other way to provide ExpressRoute to ExpressRoute transit is to deploy an AzFW or NVA in each vhub, turn on routing intent and engage Microsoft Support, [see here](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#expressroute). Under the hood we will push down RFC1918 prefixes to each ExR branch to provide a supernet of transit connectivity! 
+As observed in the single vHub scenario, the presence of a Network Virtual Appliance (NVA) or Azure Firewall (AzFW) in one or both vHubs leads to the interception of packets, diverting them from the route server instances. Similarly, a Software-Defined Wide Area Network (SDWan) would mirror the behavior of a Virtual Private Network (VPN).
+
+In the flow paths, we note that Spoke-to-Spoke communication across hubs invariably involves the route server instances. Traffic moving from Spoke to Branch and vice versa also traverses a single set of route server instances. However, Branch-to-Branch traffic does not pass through the route server instances.
+
+It's important to acknowledge that Azure Virtual WAN does not natively provide transit for ExpressRoute-to-ExpressRoute flows. To facilitate this, Global Reach is required. [For Global Reach details, please refer to the linked resource](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-global-reach). Alternatively, an Azure Firewall or NVA can be deployed in each vHub, combined with activation of routing intent and engagement with Microsoft Support. [Information on Routing Intent can be found here](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#expressroute).
+
+Under this configuration, we effectively push down RFC1918 prefixes to each ExpressRoute branch, thereby providing a supernet of transit connectivity.
 
 
 
