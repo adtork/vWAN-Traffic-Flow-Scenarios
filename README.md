@@ -1,5 +1,5 @@
 # vWAN-Traffic-Flow-Scenarios
-A simple walk threw of various traffic patterns seen in Azure Virtual Wan for Single and Multiple Hubs
+In this guide, we will delve into the integral components associated with vWAN traffic flows and their consequential impact on flow topology patterns. Central to the vWAN infrastructure for branches are key components such as VPN, SDWAN, and ExpressRoute. Within the vhub framework, Azure route server instances play a critical role in facilitating the traffic flows, utilizing BGP for communication. These route server instances are entrusted with intercepting traffic flows and ensuring the efficient delivery of data packets. The route server can be substituted by an Azure Firewall or Network Virtual Appliance (NVA) for packet interception and detailed inspection. The ensuing diagrams provide a visual representation of diverse flow patterns observed for single and multiple hubs within the vWAN framework. For further information on vWAN pricing, kindly refer to the provided article. [see this article](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/).
 <br>
 # Single vWAN Hub
 ![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/dc280f5b-d776-4967-9add-ce7677f5fd10)
