@@ -51,7 +51,7 @@ In the flow paths, we note that Spoke-to-Spoke communication across hubs invaria
 Under this configuration, we effectively push down RFC1918 prefixes to each ExpressRoute branch, thereby providing a supernet of transit connectivity.
 
 # Conclusion
-I hoped this guide provided a better understanding of how packets flow in and out of the services utilized in vWAN. Based on this knowledge, users can decide which Infrastructure units they should start with in terms of Gbps for each respective vhub. 
+I hoped this guide helped to furnish a more profound comprehension of packet flow dynamics within the services employed in vWAN. Armed with this understanding, users are enabled to make informed decisions regarding the initial infrastructure units, in terms of Gbps, that should be allocated to each respective vhub.
 
 
 
