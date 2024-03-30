@@ -32,7 +32,7 @@ Flow B: Spoke VM-->Route Server Instances--->Remote vhub VPN-->Remote Branch VPN
 <br>
 (*Reverse flow*) Branch VPN Concentrator-->Remote Route Server Instances-->Remote Spoke VM
 <br>
-Flow C: Spoke VM-->Route Server Instances-->MSEE Physical Address (PA)--->Branch Customer Edge (CE)
+Flow C: Spoke VM-->Route Server Instances-->Remote MSEE Physical Address (PA)--->Remote Branch Customer Edge (CE)
 <br>
 Flow D: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote Route Server Instances-->Remote Spoke VM
 <br>
