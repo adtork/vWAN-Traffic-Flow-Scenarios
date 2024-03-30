@@ -22,7 +22,7 @@ Flow E: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW
 Flow F: Branch VPN Concentrator-->vHub VPN--->MSEE Physical Address (PA)-->Branch Customer Edge (CE)
 
 # Quick Take-Aways
-In the aforementioned flow paths, it's pertinent to note that the Virtual Private Network (VPN) can be substituted with a Software-Defined Wide Area Network (SDWan) to yield identical results in the diagram above. If either an Azure Firewall or Network Virtual Appliance (NVA) is deployed within the virtual hub (vhub), they will intercept packets in lieu of the route service's Virtual IP (VIP), granted that Routing Intent is activated, or Private or Internet via Azure Firewall policy, see the above note! 
+In the aforementioned flow paths, it's pertinent to note that the Virtual Private Network (VPN) can be substituted with a Software-Defined Wide Area Network (SDWan) tunnels to yield identical results in the diagram above. If either an Azure Firewall or Network Virtual Appliance (NVA) is deployed within the virtual hub (vhub), they will intercept packets in lieu of the route service's Virtual IP (VIP), granted that Routing Intent is activated, or Private or Internet via Azure Firewall policy, see the above note! 
 
 During operations within a single vHub, it's important to realize that flows to and from branches, whether via IPSEC, SDWan, or ExpressRoute, do not traverse the route service instances. Instead, this pattern is only observed in Spoke to Spoke flows, which contributes towards the vHub infrastructure limit, currently capped at 50Gbps per vHub, [For additional details, please refer to the linked resource](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits). Lastly, it should be mentioned that Branch to Branch flows also bypass the route service instances. 
 
@@ -44,9 +44,9 @@ Flow E: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW
 Flow F: Branch VPN Concentrator-->Remote Physical Address MSEE (PA)-->Remote Branch Customer Edge (CE)
 
 # Quick Take-Aways
-The same principles apply to multiple vhubs in terms of SDWan and Azure Firewall/NVA behavior as a single vHub. 
+The same principles apply to multiple vhubs in terms of SDWan tunnels and Azure Firewall/NVA behavior as they do a single vHub. 
 
-In the flow paths for multiple vhubs, we note that Spoke-to-Spoke communication across hubs invariably involves the route server instances. Traffic moving from Spoke to Branch and vice versa also traverses a single set of route server instances. However, Branch-to-Branch traffic does not pass through the route server instances, just like single vhub. 
+In the flow patterns for multiple vhubs, we note that Spoke-to-Spoke communication across hubs invariably involves the route server instances. Traffic moving from Spoke to Branch and vice versa also traverses a single set of route server instances. However, Branch-to-Branch traffic does not pass through the route server instances, just like single vhub behavior. 
 
 > [!NOTE]
 >It's important to acknowledge that Azure Virtual WAN does not natively provide transit for ExpressRoute-to-ExpressRoute flows. To facilitate this, Global Reach is required. [For Global Reach details, please refer to the linked resource](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-global-reach). Alternatively, an Azure Firewall or NVA can be deployed in each vHub, combined with activation of routing intent and engagement with Microsoft Support. [Information on Routing Intent can be found here to facilitate Global Reach](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#expressroute).
