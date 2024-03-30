@@ -10,13 +10,13 @@ Flow B: Spoke VM-->vHub VPN-->Branch VPN Concentrator
 <br>
 (*Reverse flow*) Branch VPN Concentrator-->vHub VPN-->Spoke VM
 <br>
-Flow C: Spoke VM-->MSEE PA-->Branch CE (Egress flows for ExR bypass the ExR GW!)
+Flow C: Spoke VM-->MSEE Physical Address (PA)-->Branch Customer Edge (CE) (Egress flows for ExR bypass the ExR GW!)
 <Br>
-Flow D: Branch CE-->MSEE PA-->ExpressRoute GW-->Spoke VM
+Flow D: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Spoke VM
 <Br>
-Flow E: Branch CE-->MSEE-->ExpressRoute GW-->vHub VPN Gateway-->Branch VPN Concentrator
+Flow E: Branch Customer Edge (CE)-->MSEE-->ExpressRoute GW-->vHub VPN Gateway-->Branch VPN Concentrator
 <br>
-Flow F: Branch VPN Concentrator-->vHub VPN--->MSEE PA-->Branch CE
+Flow F: Branch VPN Concentrator-->vHub VPN--->MSEE Physical Address (PA)-->Branch Customer Edge (CE)
 
 # Quick Take-Aways
 In the aforementioned flow paths, it's pertinent to note that the Virtual Private Network (VPN) can be substituted with a Software-Defined Wide Area Network (SDWan) to yield identical results. If either an Azure Firewall or Network Virtual Appliance (NVA) is deployed within the virtual hub (vhub), they will intercept packets in lieu of the route service's Virtual IP (VIP), granted that Routing Intent is activated. This also applies to private or internet traffic via a single vHub.
