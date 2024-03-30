@@ -32,13 +32,13 @@ Flow B: Spoke VM-->Route Server Instances--->Remote vhub VPN-->Remote Branch VPN
 <br>
 (*Reverse flow*) Branch VPN Concentrator-->Remote Route Server Instances-->Remote Spoke VM
 <br>
-Flow C: Spoke VM-->Route Server Instances-->MSEE PA--->Branch CE
+Flow C: Spoke VM-->Route Server Instances-->MSEE Physical Address (PA)--->Branch Customer Edge (CE)
 <br>
-Flow D: Branch CE-->MSEE PA-->ExpressRoute GW-->Remote Route Server Instances-->Remote Spoke VM
+Flow D: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote Route Server Instances-->Remote Spoke VM
 <br>
-Flow E: Branch CE-->MSEE PA-->ExpressRoute GW-->Remote vHub VPN GW-->Remote Branch VPN Concentrator
+Flow E: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote vHub VPN GW-->Remote Branch VPN Concentrator
 <br>
-Flow F: Branch VPN Concentrator-->Remote MSEE PA-->Remote Branch CE
+Flow F: Branch VPN Concentrator-->Remote Physical Address MSEE (PA)-->Remote Branch Customer Edge (CE)
 
 # Quick Take-Aways
 As observed in the single vHub scenario, the presence of a Network Virtual Appliance (NVA) or Azure Firewall (AzFW) in one or both vHubs leads to the interception of packets, diverting them from the route server instances. Similarly, a Software-Defined Wide Area Network (SDWan) would mirror the behavior of a Virtual Private Network (VPN).
