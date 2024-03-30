@@ -10,7 +10,7 @@ Flow B: Spoke VM-->vHub VPN-->Branch VPN Concentrator
 <br>
 (*Reverse flow*) Branch VPN Concentrator-->vHub VPN-->Spoke VM
 <br>
-Flow C: Spoke VM-->MSEE PA-->Branch CE
+Flow C: Spoke VM-->MSEE PA-->Branch CE (Egress flows for ExR bypass the ExR GW!)
 <Br>
 Flow D: Branch CE-->MSEE PA-->ExpressRoute GW-->Spoke VM
 <Br>
