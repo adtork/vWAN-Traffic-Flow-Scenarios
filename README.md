@@ -14,7 +14,7 @@ Flow C: Spoke VM-->MSEE Physical Address (PA)-->Branch Customer Edge (CE) (Egres
 <Br>
 Flow D: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Spoke VM
 <Br>
-Flow E: Branch Customer Edge (CE)-->MSEE-->ExpressRoute GW-->vHub VPN Gateway-->Branch VPN Concentrator
+Flow E: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->vHub VPN Gateway-->Branch VPN Concentrator
 <br>
 Flow F: Branch VPN Concentrator-->vHub VPN--->MSEE Physical Address (PA)-->Branch Customer Edge (CE)
 
