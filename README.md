@@ -4,7 +4,7 @@ This guide offers an exploration of the essential elements related to vWAN traff
 > [!NOTE]
 > It should be noted that the incorporation of an Azure Firewall or NVA within a vhub, coupled with the activation of Routing Intent for either Private or Internet-bound traffic, negates the ability for users to deploy custom route tables or static routes within the default route table inside the vHub. Upon the activation of Internet security, the AzFW or NVA becomes the designated next hop for all spokes and branches, as indicated by the injection of 0.0.0.0/0. Similarly, with Private Traffic enabled, traffic destined to RFC1918 blocks is directed towards the AzFW or NVA within the vhub for inspection. However, These RFC1918 prefixes are not dispatched to branch locations when Private Traffic is enabled. Additionally, users currently sending 0.0.0.0/0 over ExpressRoute cannot utilize this concurrently with Routing Intent. In such instances, Private or Internet-based security will take precedence over the 0.0.0.0/0 advertised via BGP from ExpressRoute!
 
-# Single vWAN Hub
+# Single vWAN Hub Flows
 ![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/08966f1c-08ef-4e05-baaf-bd37a851f2bf)
 <br>
 Flow A: Spoke VM-->Route Server Instances-->Spoke VM (Reverse is the same)
@@ -26,7 +26,7 @@ In the aforementioned flow paths, it's pertinent to note that the Virtual Privat
 
 During operations within a single vHub, it's important to realize that flows to and from branches, whether via IPSEC, SDWan, or ExpressRoute, do not traverse the route service instances. Instead, this pattern is only observed in Spoke to Spoke flows, which contributes towards the vHub infrastructure limit, currently capped at 50Gbps per vHub, [For additional details, please refer to the linked resource](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits). Lastly, it should be mentioned that Branch to Branch flows also bypass the route service instances. 
 
-# Multiple vWAN Hubs
+# Multiple vWAN Hub Flows
 ![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/9138efae-55d5-4f56-9345-95f66d0d3d75)
 <br>
 Flow A: Spoke VM-->Route Server Instances-->Remote Route Server Instances-->Remote Spoke VM (Reverse is the same)
@@ -54,7 +54,7 @@ In the flow patterns for multiple vhubs, we note that Spoke-to-Spoke communicati
 Under this configuration, we effectively push down RFC1918 prefixes to each ExpressRoute branch, thereby providing a supernet of transit connectivity.
 
 # Conclusion
-I hoped this guide helped to furnish a more profound comprehension of packet flow dynamics within the services employed in vWAN. Armed with this understanding, users are enabled to make informed decisions regarding the initial infrastructure units, in terms of Gbps, that should be allocated to each respective vhub.
+I hoped this guide helped shed a bit more light on the comprehension of packet flow dynamics within the services employed in vWAN. Armed with this understanding, users are enabled to make informed decisions regarding the initial infrastructure units, in terms of (Gbps), that should be allocated to each respective vhub.
 
 
 
