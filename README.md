@@ -5,19 +5,15 @@ This guide offers an exploration of the essential elements related to vWAN traff
 # Single vWAN Hub Flows
 ![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/08966f1c-08ef-4e05-baaf-bd37a851f2bf)
 <br>
-Flow A: Spoke VM-->Route Server Instances-->Spoke VM (Reverse is the same)
-<br>
-Flow B: Spoke VM-->vHub VPN-->Branch VPN Concentrator
-<br>
-(*Reverse flow*) Branch VPN Concentrator-->vHub VPN-->Spoke VM
-<br>
-Flow C: Spoke VM-->MSEE Physical Address (PA)-->Branch Customer Edge (CE) (Egress flows for ExR bypass the ExR GW!)
-<Br>
-Flow D: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Spoke VM
-<Br>
-Flow E: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->vHub VPN Gateway-->Branch VPN Concentrator
-<br>
-Flow F: Branch VPN Concentrator-->vHub VPN--->MSEE Physical Address (PA)-->Branch Customer Edge (CE)
+| Traffic Flows  | Traffic Flow Paths |
+| :------------- | :------------- |
+| Flow A  | Spoke VM-->Route Server Instances-->Spoke VM (Reverse is the same)  |
+| Flow B  | Spoke VM-->vHub VPN-->Branch VPN Concentrator  |
+| Reverse Flow  | Branch VPN Concentrator-->vHub VPN-->Spoke VM  |
+| Flow C  | Spoke VM-->MSEE Physical Address (PA)-->Branch Customer Edge (CE) (Egress flows for ExR bypass the ExR GW!)  |
+| Flow D  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Spoke VM  |
+| Flow E  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->vHub VPN Gateway-->Branch VPN Concentrator  |
+| Flow F  | Branch VPN Concentrator-->vHub VPN--->MSEE Physical Address (PA)-->Branch Customer Edge (CE)  |
 
 # Quick Take-Aways
 In the aforementioned flow paths, it's pertinent to note that the Virtual Private Network (VPN) can be substituted with a Software-Defined Wide Area Network (SDWan) tunnels to yield identical results in the diagram above. If either an Azure Firewall or Network Virtual Appliance (NVA) is deployed within the virtual hub (vhub), they will intercept packets in lieu of the route service's Virtual IP (VIP), granted that Routing Intent is activated, or Private/Internet security via Azure Firewall policy on a single vhub! 
