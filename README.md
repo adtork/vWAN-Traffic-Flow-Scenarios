@@ -23,19 +23,15 @@ During operations within a single vHub, it's important to realize that flows to 
 # Multiple vWAN Hub Flows
 ![image](https://github.com/adtork/vWAN-Traffic-Flow-Scenarios/assets/55964102/9138efae-55d5-4f56-9345-95f66d0d3d75)
 <br>
-Flow A: Spoke VM-->Route Server Instances-->Remote Route Server Instances-->Remote Spoke VM (Reverse is the same)
-<br>
-Flow B: Spoke VM-->Route Server Instances--->Remote vhub VPN-->Remote Branch VPN Concentrator
-<br>
-(*Reverse flow*) Branch VPN Concentrator-->Remote Route Server Instances-->Remote Spoke VM
-<br>
-Flow C: Spoke VM-->Route Server Instances-->Remote MSEE Physical Address (PA)--->Remote Branch Customer Edge (CE)
-<br>
-Flow D: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote Route Server Instances-->Remote Spoke VM
-<br>
-Flow E: Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote vHub VPN GW-->Remote Branch VPN Concentrator
-<br>
-Flow F: Branch VPN Concentrator-->Remote Physical Address MSEE (PA)-->Remote Branch Customer Edge (CE)
+| Traffic Flows  | Traffic Flow Paths |
+| :------------- | :------------- |
+| Flow A  | Spoke VM-->Route Server Instances-->Remote Route Server Instances-->Remote Spoke VM (Reverse is the same) |
+| Flow B  | Spoke VM-->Route Server Instances--->Remote vhub VPN-->Remote Branch VPN Concentrator |
+| Reverse flow | Branch VPN Concentrator-->Remote Route Server Instances-->Remote Spoke VM |
+| Flow C  | Spoke VM-->Route Server Instances-->Remote MSEE Physical Address (PA)--->Remote Branch Customer Edge (CE) |
+| Flow D  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote Route Server Instances-->Remote Spoke VM |
+| Flow E  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote vHub VPN GW-->Remote Branch VPN Concentrator |
+| Flow F  | Branch VPN Concentrator-->Remote Physical Address MSEE (PA)-->Remote Branch Customer Edge (CE)  |
 
 # Quick Take-Aways
 The same principles apply to multiple vhubs in terms of SDWan tunnels and Azure Firewall/NVA behavior as they do a single vHub. 
