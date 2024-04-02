@@ -9,7 +9,7 @@ This guide offers an exploration of the essential elements related to vWAN traff
 | :------------- | :------------- |
 | Flow A  | Spoke VM-->Routing Instances-->Spoke VM (Reverse is the same)  |
 | Flow B  | Spoke VM-->vHub VPN-->Branch VPN Concentrator  |
-| Reverse Flow  | Branch VPN Concentrator-->vHub VPN-->Spoke VM  |
+| Reverse Flow B  | Branch VPN Concentrator-->vHub VPN-->Spoke VM  |
 | Flow C  | Spoke VM-->MSEE Physical Address (PA)-->Branch Customer Edge (CE) (Egress flows for ExR bypass the ExR GW!)  |
 | Flow D  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Spoke VM  |
 | Flow E  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->vHub VPN Gateway-->Branch VPN Concentrator  |
@@ -27,7 +27,7 @@ During operations within a single vHub, it's important to realize that flows to 
 | :------------- | :------------- |
 | Flow A  | Spoke VM-->Routing Instances-->Remote Routing Instances-->Remote Spoke VM (Reverse is the same) |
 | Flow B  | Spoke VM-->Routing Instances--->Remote vhub VPN-->Remote Branch VPN Concentrator |
-| Reverse flow | Branch VPN Concentrator-->Remote Routing Instances-->Remote Spoke VM |
+| Reverse flow B | Branch VPN Concentrator-->Remote Routing Instances-->Remote Spoke VM |
 | Flow C  | Spoke VM-->Routing Instances-->Remote MSEE Physical Address (PA)--->Remote Branch Customer Edge (CE) |
 | Flow D  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote Routing Instances-->Remote Spoke VM |
 | Flow E  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote vHub VPN GW-->Remote Branch VPN Concentrator |
