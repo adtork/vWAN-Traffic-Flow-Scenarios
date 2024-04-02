@@ -1,5 +1,5 @@
 # vWAN-Traffic-Flow-Scenarios
-This guide offers an exploration of the essential elements related to vWAN traffic flows, including their significance in shaping flow topology patterns. At the heart of the vWAN branch architecture lie pivotal components such as VPN, SDWAN, and ExpressRoute. Within the vhub ecosystem, Azure route server instances hold the crucial role in managing traffic flows, employing BGP for communication. These route server instances, concealed from the end user within the vhub, serve as the linchpin of the vWAN system. The route server instances bear the responsibility of intercepting and directing traffic flows, ensuring the smooth transmission of data packets. If packet flow inspetion is also required, these can be aided by an Azure Firewall or Network Virtual Appliance (NVA) inside the vHub. The moment an NVA or AzFW is incorporated into the vhub, they gain control over the data plane packet interception. To enable this inspection, Routing Intent must be enabled on multi-vhub scenarios, or Private/Internet Traffic must be enabled via Firewall policy if an Azure Firewall is deployed within the vhub(s). The subsequent diagrams offer a pictorial depiction of the various flow patterns observed for single and multiple hubs within the vWAN infrastructure. The intent of this article is to provide a more detailed depiction of flow patterns than currently available in the Azure public documents, [see here](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture#anytoany). For details on vWAN pricing, please refer to the [linked article](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/)
+This guide offers an exploration of the essential elements related to vWAN traffic flows, including their significance in shaping flow topology patterns. At the heart of the vWAN branch architecture lie pivotal components such as VPN, SDWAN, and ExpressRoute. Within the vhub ecosystem, the routing instances hold the crucial role in managing traffic flows, employing BGP for communication. These routing instances, concealed from the end user within the vhub, serve as the linchpin of the vWAN system. The routing instances bear the responsibility of intercepting and directing traffic flows, ensuring the smooth transmission of data packets. If packet flow inspetion is also required, these can be aided by an Azure Firewall or Network Virtual Appliance (NVA) inside the vHub. The moment an NVA or AzFW is incorporated into the vhub, they gain control over the data plane packet interception. To enable this inspection, Routing Intent must be enabled on multi-vhub scenarios, or Private/Internet Traffic must be enabled via Firewall policy if an Azure Firewall is deployed within the vhub(s). The subsequent diagrams offer a pictorial depiction of the various flow patterns observed for single and multiple hubs within the vWAN infrastructure. The intent of this article is to provide a more detailed depiction of flow patterns than currently available in the Azure public documents, [see here](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture#anytoany). For details on vWAN pricing, please refer to the [linked article](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/)
 <br>
 
 # Single vWAN Hub Flows
@@ -7,7 +7,7 @@ This guide offers an exploration of the essential elements related to vWAN traff
 <br>
 | Traffic Flows  | Traffic Flow Paths |
 | :------------- | :------------- |
-| Flow A  | Spoke VM-->Route Server Instances-->Spoke VM (Reverse is the same)  |
+| Flow A  | Spoke VM-->Routing Instances-->Spoke VM (Reverse is the same)  |
 | Flow B  | Spoke VM-->vHub VPN-->Branch VPN Concentrator  |
 | Reverse Flow  | Branch VPN Concentrator-->vHub VPN-->Spoke VM  |
 | Flow C  | Spoke VM-->MSEE Physical Address (PA)-->Branch Customer Edge (CE) (Egress flows for ExR bypass the ExR GW!)  |
@@ -25,18 +25,18 @@ During operations within a single vHub, it's important to realize that flows to 
 <br>
 | Traffic Flows  | Traffic Flow Paths |
 | :------------- | :------------- |
-| Flow A  | Spoke VM-->Route Server Instances-->Remote Route Server Instances-->Remote Spoke VM (Reverse is the same) |
-| Flow B  | Spoke VM-->Route Server Instances--->Remote vhub VPN-->Remote Branch VPN Concentrator |
-| Reverse flow | Branch VPN Concentrator-->Remote Route Server Instances-->Remote Spoke VM |
-| Flow C  | Spoke VM-->Route Server Instances-->Remote MSEE Physical Address (PA)--->Remote Branch Customer Edge (CE) |
-| Flow D  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote Route Server Instances-->Remote Spoke VM |
+| Flow A  | Spoke VM-->Routing Instances-->Remote Routing Instances-->Remote Spoke VM (Reverse is the same) |
+| Flow B  | Spoke VM-->Routing Instances--->Remote vhub VPN-->Remote Branch VPN Concentrator |
+| Reverse flow | Branch VPN Concentrator-->Remote Routing Instances-->Remote Spoke VM |
+| Flow C  | Spoke VM-->Routing Instances-->Remote MSEE Physical Address (PA)--->Remote Branch Customer Edge (CE) |
+| Flow D  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote Routing Instances-->Remote Spoke VM |
 | Flow E  | Branch Customer Edge (CE)-->MSEE Physical Address (PA)-->ExpressRoute GW-->Remote vHub VPN GW-->Remote Branch VPN Concentrator |
 | Flow F  | Branch VPN Concentrator-->Remote Physical Address MSEE (PA)-->Remote Branch Customer Edge (CE)  |
 
 # Quick Take-Aways
 The same principles apply to multiple vhubs in terms of SDWan tunnels and Azure Firewall/NVA behavior as they do a single vHub. 
 
-In the flow patterns for multiple vhubs, we note that Spoke-to-Spoke communication across hubs invariably involves the route server instances. Traffic moving from Spoke to Branch and vice versa also traverses a single set of route server instances. However, Branch-to-Branch traffic does not pass through the route server instances, just like single vhub behavior. 
+In the flow patterns for multiple vhubs, we note that Spoke-to-Spoke communication across hubs invariably involves the routing instances. Traffic moving from Spoke to Branch and vice versa also traverses a single set of routing instances. However, Branch-to-Branch traffic does not pass through the routing instances, just like single vhub behavior. 
 
 > [!NOTE]
 >It's important to acknowledge that Azure Virtual WAN does not natively provide transit for ExpressRoute-to-ExpressRoute flows. To facilitate this, Global Reach is required. [For Global Reach details, please refer to the linked resource](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-global-reach). Alternatively, an Azure Firewall or NVA can be deployed in each vHub, combined with activation of routing intent and engagement with Microsoft Support. [Information on Routing Intent can be found here to facilitate transit between ExR Circuits](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#expressroute).
